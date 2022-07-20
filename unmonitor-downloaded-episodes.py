@@ -20,7 +20,7 @@ def unmonitor_all_downloaded(host, api_key):
     finally:
         print('Unmonitored:')
         [print(f'\t{title}: {count} episodes') for title, count in counter.items()]
-        print(f'Elapsed: {time()-start:.2f} seconds')
+        print(f'\n\nElapsed Time: {time()-start:.2f} seconds')
 
 def main():
     if len(argv) < 3:
