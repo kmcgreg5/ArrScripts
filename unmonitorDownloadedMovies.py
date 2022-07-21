@@ -9,7 +9,7 @@ def unmonitor_all_downloaded(host, api_key):
 
     radarr = RadarrAPI(host, api_key)
     movies_list = radarr.get_movie()
-    print("Unmonitored:")
+    print("\nUnmonitored:")
     [__unmonitor(movie) for movie in movies_list if movie['hasFile'] and movie['monitored']]
 
 def main():
@@ -17,9 +17,9 @@ def main():
         print("Usage: python unmonitor-downloaded-movies.py baseURL API-KEY")
         return
 
-    API_KEY = argv[2]
+    api_key = argv[2]
     host = argv[1]
-    unmonitor_all_downloaded(host, API_KEY)
+    unmonitor_all_downloaded(host, api_key)
 
 if __name__ == "__main__":
     main()
