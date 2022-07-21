@@ -1,8 +1,12 @@
-# SonarrScripts
-API scripts for use with sonarr
+# ArrScripts
+API scripts for use with Arr apps
 ### Usage:
 ---
 Unmonitors downloaded episodes from sonarr:
 ```
-python unmonitor-downloaded-episodes.py BASEURL APIKEY
+python unmonitorDownloadedEpisodes.py BASEURL APIKEY
+```
+Unmonitors downloaded movies from radarr:
+```
+python unmonitorDownloadedMovies.py BASEURL APIKEY
 ```
