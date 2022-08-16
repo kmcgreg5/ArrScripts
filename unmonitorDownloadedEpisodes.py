@@ -4,7 +4,8 @@ from sys import argv
 def unmonitor_all_downloaded(host, api_key):
     def __unmonitor(episode):
         episode['monitored'] = False
-        print(episode)
+        
+        print(f'EPISODE: {episode}')
         sonarr.upd_episode(episode['id'], episode)
         counter[series['title']] = counter.get(series['title'], 0) + 1
 
