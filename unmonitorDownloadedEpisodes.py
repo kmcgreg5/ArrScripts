@@ -4,7 +4,7 @@ from sys import argv
 def unmonitor_all_downloaded(host, api_key):
     def __unmonitor(episode):
         episode['monitored'] = False
-        sonarr.upd_episode(episode)
+        sonarr.upd_episode(episode['id'], {"monitored": False})
         counter[series['title']] = counter.get(series['title'], 0) + 1
 
     sonarr = SonarrAPI(host, api_key)
@@ -12,8 +12,9 @@ def unmonitor_all_downloaded(host, api_key):
     counter = {}
     try:
         for series in series_list:
-            episodes = sonarr.get_episodes_by_series_id(series['id'])
-            [__unmonitor(episode) for episode in episodes if episode['hasFile'] and episode['monitored']]
+            episodes = sonarr.get_episode(series['id'], True)
+            print(episodes)
+            #[__unmonitor(episode) for episode in episodes if episode['hasFile'] and episode['monitored']]
                     
     finally:
         print('\nUnmonitored:')
