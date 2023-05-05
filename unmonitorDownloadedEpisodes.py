@@ -14,6 +14,7 @@ def unmonitor_all_downloaded(host, api_key):
         for series in series_list:
             episodes = sonarr.get_episode(series['id'], True)
             print(episodes)
+            break
             #[__unmonitor(episode) for episode in episodes if episode['hasFile'] and episode['monitored']]
                     
     finally:
